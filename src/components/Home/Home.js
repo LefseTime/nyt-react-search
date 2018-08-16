@@ -9,35 +9,35 @@ class Home extends Component {
         
     };
 
-    componentDidMount() {
+    // componentDidMount() {
         
-    }
+    // }
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    };
+    // handleInputChange = event => {
+    //     const { name, value } = event.target;
+    //     this.setState({
+    //         [name]: value
+    //     });
+    // };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        if (this.state.title && this.state.url) {
-            API.saveArticle({
-                title: this.state.title,
-                url: this.state.url,
-                date: this.state.date
-            })
-                .then(res => this.loadSaved())
-                .catch(err => console.log(err));
-        }
-    };
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     if (this.state.title && this.state.url) {
+    //         API.saveArticle({
+    //             title: this.state.title,
+    //             url: this.state.url,
+    //             date: this.state.date
+    //         })
+    //             .then(res => this.loadSaved())
+    //             .catch(err => console.log(err));
+    //     }
+    // };
 
     render() {
         return (
             <div>
                 <header>
-                    <h1 className="jumbotron text-center">It werkssss!!!!</h1>
+                    <h1 className="jumbotron text-center">NYT Article Search</h1>
                 </header>
                 <Search />
                 <Saved />

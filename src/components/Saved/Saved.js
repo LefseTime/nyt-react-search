@@ -6,12 +6,13 @@ class Saved extends Component {
     state = {
         articles: [],
         title: "",
-        author: "",
-        synopsis: ""
+        url: "",
+        date: ""
     };
 
     componentDidMount() {
         this.loadSaved();
+        console.log(this.state.articles)
     }
 
     loadSaved = () => {
@@ -31,9 +32,33 @@ class Saved extends Component {
 
     render() {
         return (
-            <header>
-                <h2 className="jumbotron text-center">This is the saved thingy.</h2>
-            </header>
+            <div className="container">
+                <div className="card">
+                    <div className="card-header text-center">
+                        Saved
+                    </div>
+                    <div className="card-body">
+                        <div className="card">
+                            {this.state.articles.length ? (
+                                <ul className="list-group list-group-flush">
+                                    {this.state.articles.map(article => (
+                                        <li className="list-group-item" key={article._id}>
+                                            <Link to={"/articles/" + article._id}>
+                                                <strong>
+                                                    Title: {article.title}
+                                                </strong>
+                                            </Link>
+                                            {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                    <p className="text-center">No Results to Display</p>
+                                )}
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
