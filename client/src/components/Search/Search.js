@@ -61,6 +61,23 @@ class Search extends Component {
                         </form>
                     </div>
                 </div>
+
+
+                {this.state.searchTerm.length ? (
+                    <div className="card">
+                    <div className="card-header text-center">
+                        Results
+                    </div>
+                    <div className="card-body">
+                        
+                    </div>
+                </div>
+
+
+
+                ) : (
+                    <h1></h1>
+                )}
             </div>
         )
     }
