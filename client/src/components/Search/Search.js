@@ -4,7 +4,11 @@ import React, { Component } from "react";
 
 class Search extends Component {
     state = {
-        searchTerm: ""
+        searchTerm: "",
+        articles: [],
+        title: "",
+        url: "",
+        date: ""
     }
 
     handleInputChange = event => {
@@ -14,19 +18,44 @@ class Search extends Component {
         });
     };
 
+    // API.saveBook({
+    //     title: this.state.title,
+    //     author: this.state.author,
+    //     synopsis: this.state.synopsis
+    //   })
 
     //this needs to go to nyt api
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.searchTerm) {
-            // API.saveArticle({
-            //     title: this.state.title,
-            //     url: this.state.url,
-            //     date: this.state.date
-            // })
-            //     .then(res => this.loadSaved())
-            //     .catch(err => console.log(err));
-        }
+            // buildQueryURL = () => {
+                
+            //     // const queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=b9f91d369ff59547cd47b931d8cbc56b:0:74623931&query=" + {this.state.searchTerm};
+            //     const queryParams = { "api-key": "b9f91d369ff59547cd47b931d8cbc56b:0:74623931" };
+                
+            //     // Grab text the user typed into the search input, add to the queryParams object
+            //     queryParams.q = {searchTerm : this.state.searchTerm};
+              
+            //     // Logging the URL so we have access to it for troubleshooting
+            //     console.log("---------------\nURL: " + queryURL + "\n---------------");
+            //     console.log(queryURL + $.param(queryParams));
+            //     return queryURL + $.param(queryParams);
+            //   }
+            //   $.ajax({
+            //     url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?",
+            //     method: "GET"
+            //   }).then(
+            //     //   res.response.docs[].web_url
+            //     //   res.response.docs[].pub_date
+            //     //   res.response.docs[].headline.main
+            //   );
+            // // API.saveArticle({
+            // //     title: this.state.title,
+            // //     url: this.state.url,
+            // //     date: this.state.date
+            // // })
+            // //     .then(res => this.loadSaved())
+            // //     .catch(err => console.log(err));
+        
     };
 
     render() {
@@ -62,8 +91,7 @@ class Search extends Component {
                     </div>
                 </div>
 
-
-                {this.state.searchTerm.length ? (
+                {this.state.articles.length ? (
                     <div className="card">
                     <div className="card-header text-center">
                         Results
